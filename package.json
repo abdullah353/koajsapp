@@ -1,0 +1,23 @@
+{
+  "name": "koajsapp",
+  "version": "0.0.0",
+  "description": "Implementation of NodeJS >= 7 features, and Koa framework.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mabdullah353/koajsapp.git"
+  },
+  "keywords": [
+    "koajs",
+    "test"
+  ],
+  "author": "Abdullah Bashir <mabdullah353@gmail.com> (https://github.com/forkgeeks)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mabdullah353/koajsapp/issues"
+  },
+  "homepage": "https://github.com/mabdullah353/koajsapp#readme"
+}
