@@ -4,7 +4,9 @@
   "description": "Implementation of NodeJS >= 7 features, and Koa framework.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --require co-mocha config/tests.js './**/*.spec.js'"
+    "test": "mocha --require co-mocha config/tests.js './models/**/*.spec.js'",
+    "mg:run": "sequelize db:migrate --migrations-path ./database/migrations",
+    "mg:create": "sequelize migration:create --migrations-path ./database/migrations --name"
   },
   "repository": {
     "type": "git",
@@ -25,5 +27,10 @@
     "gulp": "3.9.1",
     "gulp-nodemon": "2.2.1",
     "mocha": "3.5.0"
+  },
+  "dependencies": {
+    "sequelize": "4.4.10",
+    "sequelize-cli": "2.8.0",
+    "sqlite3": "3.1.9"
   }
 }
