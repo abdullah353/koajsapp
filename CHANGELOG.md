@@ -21,3 +21,5 @@
 - Integrated Mocha and Gulp for development work flow
 - Added travis sticker in Readme
 - Initialized node application
+
+[1.0.0]: https://github.com/mabdullah353/koajsapp/compare/v0.0.0...v0.2.5
