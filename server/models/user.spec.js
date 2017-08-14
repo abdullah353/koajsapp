@@ -5,63 +5,43 @@
 const chai = require('chai')
 const chaiAsPromised = require('chai-as-promised')
 const assert = chai.assert
+const User = require('./user')
+const logger = require('winston')
 
 chai.use(chaiAsPromised)
 
-const User = require('./user')
-
-// Test Samples for user model.
-const validUserSample = {
-  'email': 'abc@gmail.com',
-  'password': '12345678',
-  'avatarUrl': 'http://thecatapi.com/api/images/get?format=src&type=jpg'
-}
-
-const invalidUserSamples = [
-  {
-    'email': 'invalidEmail',
-    'password': '1234',
-    'avatarUrl': 'http://xyz.com/t.png'
-  },
-  {
-    'email': 'xyz@xyz.com',
-    'password': '1234',
-    'avatarUrl': 'invalidUrl'
-  },
-  {
-    'password': '1234'
-  },
-  {
-    'email': 'xyz@xyz.com'
-  },
-  {
-    'avatarUrl': 'http://xyz.com/t.png'
-  }
-]
-
 describe('Model User', () => {
-  beforeEach(async () => {
-    // Adding User into database.
-    await User.create(validUserSample)
-  })
-
   it('should add only valid user into database.', async () => {
-    let user
+    // fill db with valid users.
+    await testFacades.fillSampleUsers()
 
-    try {
-      user = await User.findOne({where: {email: 'abc@gmail.com'}})
-    } catch (err) {
-      assert.fail('Unable to fetch user from database.')
+    for (let i in testFacades.validUserSamples) {
+      let userStored
+      let sampleUser = testFacades.validUserSamples[i]
+
+      try {
+        userStored = await User.findOne({
+          where: {
+            email: sampleUser.email
+          }
+        })
+      } catch (err) {
+        logger.error('Unable to store the valid user ' + err)
+        assert.fail('Unable to store the valid user ' + err)
+      }
+
+      assert.equal(userStored.email, sampleUser.email)
+      // Password should be stored as hash.
+      assert.notEqual(userStored.password, sampleUser.password)
     }
-
-    assert.equal(user.email, validUserSample.email)
-    assert.equal(user.avatarUrl, validUserSample.avatarUrl)
   })
 
   it('should not allow invalid user insertions into database.', async () => {
-    for (let user in invalidUserSamples) {
+    for (let i in testFacades.invalidUserSamples) {
+      let sampleUser = testFacades.invalidUserSamples[i]
+
       try {
-        await User.create(user)
+        await User.create(sampleUser)
         assert.fail('Should not store invalid user.')
       } catch (err) {
         assert.isOk('User not valid.')
@@ -69,12 +49,6 @@ describe('Model User', () => {
     }
   })
 
-  afterEach(async () => {
-    // Cleaning tests insertions.
-    await User.destroy({
-      where: {
-        email: validUserSample.email
-      }
-    })
-  })
+  // Clean all samples from database.
+  afterEach(async () => await testFacades.cleanSampleUsers())
 })
