@@ -2,6 +2,9 @@
   "name": "koajsapp",
   "version": "0.0.0",
   "description": "Implementation of NodeJS >= 7 features, and Koa framework.",
+  "engines": {
+    "node": ">=8"
+  },
   "main": "index.js",
   "scripts": {
     "test": "mocha --require co-mocha config/tests.js './server/**/*.spec.js'",
