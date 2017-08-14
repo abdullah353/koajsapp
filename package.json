@@ -9,7 +9,8 @@
   "scripts": {
     "test": "mocha --require co-mocha config/tests.js './server/**/*.spec.js'",
     "mg:run": "sequelize db:migrate --migrations-path ./database/migrations",
-    "mg:create": "sequelize migration:create --migrations-path ./database/migrations --name"
+    "mg:create": "sequelize migration:create --migrations-path ./database/migrations --name",
+    "gulp": "gulp default"
   },
   "repository": {
     "type": "git",
@@ -31,11 +32,18 @@
     "co-mocha": "1.2.0",
     "gulp": "3.9.1",
     "gulp-nodemon": "2.2.1",
+    "gulp-run": "1.7.1",
+    "gulp-watch": "4.3.11",
     "mocha": "3.5.0"
   },
   "dependencies": {
+    "joi": "10.6.0",
+    "koa": "2.3.0",
+    "koa-body": "2.3.0",
+    "koa-router": "7.2.1",
     "sequelize": "4.4.10",
     "sequelize-cli": "2.8.0",
-    "sqlite3": "3.1.9"
+    "sqlite3": "3.1.9",
+    "winston": "2.3.1"
   }
 }
