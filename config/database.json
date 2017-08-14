@@ -1,0 +1,12 @@
+{
+  "development": {
+    "dialect": "sqlite",
+    "storage": "database/db.sqlite",
+    "migrations-path": "./database/migrations"
+  },
+  "production": {
+    "dialect": "sqlite",
+    "storage": "database/production-db.sqlite",
+    "migrations-path": "./database/migrations"
+  }
+}
