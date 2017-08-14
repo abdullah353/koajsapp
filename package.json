@@ -1,0 +1,29 @@
+{
+  "name": "koajsapp",
+  "version": "0.0.0",
+  "description": "Implementation of NodeJS >= 7 features, and Koa framework.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --require co-mocha config/tests.js './**/*.spec.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mabdullah353/koajsapp.git"
+  },
+  "keywords": [
+    "koajs",
+    "test"
+  ],
+  "author": "Abdullah Bashir <mabdullah353@gmail.com> (https://github.com/forkgeeks)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mabdullah353/koajsapp/issues"
+  },
+  "homepage": "https://github.com/mabdullah353/koajsapp#readme",
+  "devDependencies": {
+    "co-mocha": "1.2.0",
+    "gulp": "3.9.1",
+    "gulp-nodemon": "2.2.1",
+    "mocha": "3.5.0"
+  }
+}
