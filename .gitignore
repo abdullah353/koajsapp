@@ -1,4 +1,5 @@
 ## linux swap/undo files
+.DS_Store
 *.un~
 *.swp
 *.swo
