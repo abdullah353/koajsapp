@@ -7,19 +7,12 @@ const chai = require('chai')
 const chaiAsPromised = require('chai-as-promised')
 const assert = chai.assert
 
-// faking koa-router context object.
-const ctx = {}
-
 describe('GET /user', () => {
-  // Test Samples for user model.
-  const validUserSample = {
-    'email': 'abc@gmail.com',
-    'password': '12345678',
-    'avatarUrl': 'http://thecatapi.com/api/images/get?format=src&type=jpg'
-  }
+  // Mocking koa-router context object.
+  const ctx = {}
 
   beforeEach(async () => {
-    await User.create(validUserSample)
+    await testFacades.fillSampleUsers()
   })
 
   it('should return all users json in body.', async () => {
@@ -29,17 +22,15 @@ describe('GET /user', () => {
 
     let body = JSON.parse(ctx.body)
     let users = body.map((user) => user.email)
-    // Body must contain sample user.
-    assert.deepInclude(users, validUserSample.email)
+
+    for (let i in testFacades.validUserSamples) {
+      let userSample = testFacades.validUserSamples[i]
+        // Body must contain sample user.
+        assert.deepInclude(users, userSample.email)
+    }
   })
 
-  afterEach(async () => {
-    // Cleaning tests insertions.
-    await User.destroy({
-      where: {
-        email: validUserSample.email
-      }
-    })
-  })
 
+  // Clean all samples from database.
+  afterEach(async () => await testFacades.cleanSampleUsers())
 })
