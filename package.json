@@ -4,7 +4,7 @@
   "description": "Implementation of NodeJS >= 7 features, and Koa framework.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --require co-mocha config/tests.js './models/**/*.spec.js'",
+    "test": "mocha --require co-mocha config/tests.js './server/**/*.spec.js'",
     "mg:run": "sequelize db:migrate --migrations-path ./database/migrations",
     "mg:create": "sequelize migration:create --migrations-path ./database/migrations --name"
   },
@@ -23,6 +23,8 @@
   },
   "homepage": "https://github.com/mabdullah353/koajsapp#readme",
   "devDependencies": {
+    "chai": "4.1.1",
+    "chai-as-promised": "7.1.1",
     "co-mocha": "1.2.0",
     "gulp": "3.9.1",
     "gulp-nodemon": "2.2.1",
