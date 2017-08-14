@@ -2,7 +2,7 @@
 
 'use strict'
 
-const Sequelize = require('Sequelize')
+const Sequelize = require('sequelize')
 
 // Initilizing Database.
 const sequelize = new Sequelize({
