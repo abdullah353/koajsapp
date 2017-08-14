@@ -1,3 +1,6 @@
+# Ignoring Database files
+database/db.sqlite
+
 ## linux swap/undo files
 .DS_Store
 *.un~
