@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.9.2] - 2017-08-15
+
+### Fixes
+- Docker suppressing errors if RM command not found any directory/file.
+
 ## [0.9.1] - 2017-08-15
 
 ### Fixes
@@ -73,6 +78,7 @@
 - Added travis sticker in Readme
 - Initialized node application
 
+[0.9.2]: https://github.com/mabdullah353/koajsapp/compare/v0.9.1...v0.9.2
 [0.9.1]: https://github.com/mabdullah353/koajsapp/compare/v0.8.8...v0.9.1
 [0.8.8]: https://github.com/mabdullah353/koajsapp/compare/v0.8.5...v0.8.8
 [0.8.5]: https://github.com/mabdullah353/koajsapp/compare/v0.3.1...v0.8.5

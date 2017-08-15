@@ -10,9 +10,9 @@ COPY ./ /koajsapp/
 WORKDIR /koajsapp
 
 # NPM Bug 
-RUN rm -rf node_modules/
+RUN rm -rf node_modules/; exit 0
 # Not pushing local DB, if their is any.
-RUN rm database/db.sqlite
+RUN rm database/db.sqlite; exit 0
 
 RUN ls -alh
 RUN cat package.json

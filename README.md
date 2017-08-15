@@ -98,6 +98,10 @@ npm start
 In root of the pakage their is Dockerfile. so to build an docker instance you can use the following command.
 
 ```bash
+# clone repository.
+git clone https://github.com/mabdullah353/koajsapp.git
+cd koajsapp
+
 # Build the image.
 docker build -t mabdullah353:koajsapp .
 
