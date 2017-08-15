@@ -1,14 +1,5 @@
 # Changelog
 
-## [0.8.8] - 2017-08-15
-
-### Added
-- Docker file.
-- Created npm start scipt.
-
-### Updated.
-- README.md and added instructions for `npm start` and `docker build`
-
 ## [0.8.5] - 2017-08-15
 
 ### Added

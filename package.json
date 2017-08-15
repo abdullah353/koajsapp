@@ -12,8 +12,7 @@
     "mg:create": "sequelize migration:create --migrations-path ./database/migrations --name",
     "gulp": "gulp",
     "linter": "eslint './server/**/*.js' './core/**/*.js' './config/**/*.js' './database/**/*.js'",
-    "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
-    "start": "gulp nodemon"
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
   },
   "repository": {
     "type": "git",
