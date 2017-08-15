@@ -85,3 +85,27 @@ Following are the environment variables that can control flow of application.
 4. LOGGER_LEVEL (default info string)
 5. LOGGER_ENABLED (default true string)
 
+# To Make application Daeomon.
+
+Npm start will run the gulp nodemon task and it make sure application will keep running.
+
+```bash
+npm start
+```
+
+# Docker
+
+In root of the pakage their is Dockerfile. so to build an docker instance you can use the following command.
+
+```bash
+# Build the image.
+docker build -t mabdullah353/koajsapp .
+
+# Chek all images.
+docker images
+
+# Run the image.
+docker run -p 80:8080 -d mabdullah353/koajsapp
+```
+
+visit http://localhost
