@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.9.1] - 2017-08-15
+
+### Fixes
+- Dockerfile.
+
+### Updates
+- README.md, Updated Docker section.
+
+### Refctors
+- Refactored Less code.
+
 ## [0.8.8] - 2017-08-15
 
 ### Added

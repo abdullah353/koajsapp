@@ -1,0 +1,20 @@
+.flex-center {
+    display: flex;
+    justify-content: center;
+}
+
+.border-radius(@t, @r, @b, @l) {
+    -webkit-border-radius: @t @r @b @l;
+    -moz-border-radius: @t @r @b @l;
+    border-radius: @t @r @b @l;
+}
+
+.border-radius(@r) {
+    .border-radius(@r, @r, @r, @r)
+}
+
+.circle(@radius) {
+    width: @radius;
+    height: @radius;
+    .border-radius(50%);
+}

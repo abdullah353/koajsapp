@@ -1,18 +1,20 @@
+@import "common/mixins";
+@import "common/variables";
+
 body{
-    background: darkslategrey;
-    margin-top: 80px;
-    font-family: fantasy;
+    background: @bg;
+    margin-top: @top-gutter;
+    font-family: @default-font;
 }
 
 #content {
-    display: flex;
-    justify-content: center;
+    .flex-center();
 
     .panel {
-        border-radius: 5px 5px 0 0;
-        background-color: whitesmoke;
+        .border-radius(5px, 5px, 0, 0);
+        background-color: @off-white;
         position: relative;
-        padding: 50px;
+        padding: @panel-top-gutter;
         display: flex;
         flex-direction: column;
 
@@ -24,7 +26,7 @@ body{
 
         label {
             width: 160px;
-            padding-top: 6px;
+            padding-top: @default-padding - 4px;
         }
 
         input {
@@ -36,12 +38,10 @@ body{
 
 .avatar {
     position: absolute;
-    top: -60px;
-    width: 120px;
     left: 145px;
-    height: 120px;
-    border-radius: 50%;
-    border: 2px solid whitesmoke;
+    top: -60px;
+    .circle(120px);
+    border: 2px solid @off-white;
 }
 
 .errors-panel {
