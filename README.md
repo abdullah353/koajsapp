@@ -61,7 +61,7 @@ This will run all test cases and generate code coverage using `istanbul`.
 
 ### Gulp **liveBuild** task.
 
-This will keep an eye on JS file changes and rerun 'tests', 'linter' and 'nodemon' tasks.
+This will keep an eye on JS file changes and rerun `less`, `tests`, `linter` and `nodemon` tasks.
 
 ### Gulp **linter** task.
 
@@ -70,3 +70,18 @@ This will run eslint script and identify errors on code styles.
 ### Gulp **coveralls** task.
 
 It will update coveralls.io with code coverage.
+
+### Gulp **less** task.
+
+It will compile any less files into css file, and place it in public/css folder.
+
+# Environment Variables.
+
+Following are the environment variables that can control flow of application.
+
+1. PORT (default 8080 number)
+2. HOST (default localhost string)
+3. NODE_ENV (default development string)
+4. LOGGER_LEVEL (default info string)
+5. LOGGER_ENABLED (default true string)
+

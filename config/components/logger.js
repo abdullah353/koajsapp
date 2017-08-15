@@ -16,15 +16,16 @@ const envVarsSchema = joi.object({
 }).unknown()
   .required()
 
-const { error, value: envVars } = joi.validate(process.env, envVarsSchema)
-if (error) {
-  throw new Error(`Config validation error: ${error.message}`)
+const result = joi.validate(process.env, envVarsSchema)
+
+if (result.error) {
+  throw new Error(`Config validation error: ${result.error}`)
 }
 
 const config = {
   logger: {
-    level: envVars.LOGGER_LEVEL,
-    enabled: envVars.LOGGER_ENABLED
+    level: result.value.LOGGER_LEVEL,
+    enabled: result.value.LOGGER_ENABLED
   }
 }
 

@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.8.5] - 2017-08-15
+
+### Added
+- EJS views in resources/views.
+- Login functionality.
+- Logout functionality.
+- Dashboard functionality.
+- Github Login via passportJS.
+- Added some known paths in config.
+- Less compiler, to generate css.
+- listDir function in core.
+
+### Refactors
+- Test cases, and code to increase code coverage.
+
 ## [0.3.1] - 2017-08-15
 
 ### Added
@@ -38,6 +53,7 @@
 - Added travis sticker in Readme
 - Initialized node application
 
+[0.8.5]: https://github.com/mabdullah353/koajsapp/compare/v0.3.1...v0.8.5
 [0.3.1]: https://github.com/mabdullah353/koajsapp/compare/v0.2.6...v0.3.1
 [0.2.6]: https://github.com/mabdullah353/koajsapp/compare/v0.2.5...v0.2.6
 [0.2.5]: https://github.com/mabdullah353/koajsapp/compare/v0.0.0...v0.2.5

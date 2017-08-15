@@ -1,0 +1,29 @@
+<%- include('header') -%>
+<div class="form-wrapper">
+
+    <ul class="errors-panel">
+      <% errors.forEach(function(error){ %>
+        <%- include('alerts', {message: error, type: "errors"}); %>
+      <% }); %>
+    </ul>
+
+    <form class="panel" action="/register" method="post">
+        <h2>Register</h2>
+        <span>
+            <label>Email:</label>
+            <input type="email" name="email"  required>
+        </span>
+        <span>
+            <label>Password:</label>
+            <input type="password" name="password" required>
+        </span>
+        <span>
+            <button class="btn" type="submit">Register</button>
+        </span>
+    </form>
+    <div class="separator"></div>
+    <span>
+            <a class="btn btn-scaled" href="/login">Or signin</a>
+    </span>
+</div>    
+<%- include('footer') -%>
