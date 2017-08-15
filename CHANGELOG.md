@@ -73,6 +73,8 @@
 - Added travis sticker in Readme
 - Initialized node application
 
+[0.9.1]: https://github.com/mabdullah353/koajsapp/compare/v0.8.8...v0.9.1
+[0.8.8]: https://github.com/mabdullah353/koajsapp/compare/v0.8.5...v0.8.8
 [0.8.5]: https://github.com/mabdullah353/koajsapp/compare/v0.3.1...v0.8.5
 [0.3.1]: https://github.com/mabdullah353/koajsapp/compare/v0.2.6...v0.3.1
 [0.2.6]: https://github.com/mabdullah353/koajsapp/compare/v0.2.5...v0.2.6
