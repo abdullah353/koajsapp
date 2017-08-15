@@ -1,0 +1,14 @@
+<%- include('header') -%>
+    <div class="form-wrapper">
+        <div class="panel">
+            <h2>Dashboard</h2>
+            <h3>Your Info:</h3>
+            <h5>Email:</h5> <%= email %>
+            <h5>CreatedAt:</h5> <%= dateCreated %>
+            <img class="avatar" title="avatar" src="<%= avatar %>">
+        </div>
+        <span>
+            <a class="btn btn-scaled" href="/logout">Logout</a>
+        </span>
+    </div>
+<%- include('footer') -%>

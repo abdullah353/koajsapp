@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/mabdullah353/koajsapp.svg?branch=master)](https://travis-ci.org/mabdullah353/koajsapp) 
-[![Coverage Status](https://coveralls.io/repos/github/mabdullah353/koajsapp/badge.svg?branch=master)](https://coveralls.io/github/mabdullah353/koajsapp?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/mabdullah353/koajsapp/badge.svg?branch=master)](https://coveralls.io/github/mabdullah353/koajsapp?branch=master) [![npm](https://img.shields.io/npm/v/npm.svg)]() [![David](https://img.shields.io/david/expressjs/express.svg)]()[![David](https://img.shields.io/david/dev/expressjs/express.svg)]()
 
 # Installing.
 
@@ -61,7 +61,7 @@ This will run all test cases and generate code coverage using `istanbul`.
 
 ### Gulp **liveBuild** task.
 
-This will keep an eye on JS file changes and rerun 'tests', 'linter' and 'nodemon' tasks.
+This will keep an eye on JS file changes and rerun `less`, `tests`, `linter` and `nodemon` tasks.
 
 ### Gulp **linter** task.
 
@@ -70,3 +70,18 @@ This will run eslint script and identify errors on code styles.
 ### Gulp **coveralls** task.
 
 It will update coveralls.io with code coverage.
+
+### Gulp **less** task.
+
+It will compile any less files into css file, and place it in public/css folder.
+
+# Environment Variables.
+
+Following are the environment variables that can control flow of application.
+
+1. PORT (default 8080 number)
+2. HOST (default localhost string)
+3. NODE_ENV (default development string)
+4. LOGGER_LEVEL (default info string)
+5. LOGGER_ENABLED (default true string)
+
