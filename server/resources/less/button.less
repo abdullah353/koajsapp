@@ -1,25 +1,28 @@
+@import "common/mixins";
+@import "common/variables";
+
 .btn {
     cursor: pointer;
     border-width: 0;
     height: 30px;
     width: 100%;
-    background-color: #34404a;
-    color: whitesmoke;
+    background-color: @btn-bg;
+    color: @off-white;
     transition: background-color 0.3s;
-    font-size: 18px;
-    font-family: fantasy;
+    font-size: @btn-size;
+    font-family: @default-font;
 
     &:hover{
-        background-color: #4b565f;
+        background-color: @btn-hover;
     }
 
     &.btn-scaled {
         vertical-align: middle;
-        padding-top: 10px;
+        padding-top: @default-padding;
         height: 32px;
         width: 100%;
         display: inline-block;
-        border-radius: 0 0 5px 5px;
+        .border-radius(0, 0, 5px, 5px);
     }
 }
 
@@ -27,7 +30,7 @@ a.btn {
     text-align: center;
     text-decoration: none;
     vertical-align: middle;
-    padding-top: 6px;
+    padding-top: @default-padding - 4px;
     height: 24px;
     display: inline-block;
 }

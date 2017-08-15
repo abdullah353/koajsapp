@@ -99,13 +99,13 @@ In root of the pakage their is Dockerfile. so to build an docker instance you ca
 
 ```bash
 # Build the image.
-docker build -t mabdullah353/koajsapp .
+docker build -t mabdullah353:koajsapp .
 
 # Chek all images.
 docker images
 
 # Run the image.
-docker run -p 80:8080 -d mabdullah353/koajsapp
+docker run -w /koajsapp -p 8080:8080 -d mabdullah353:koajsapp
 ```
 
-visit http://localhost
+visit [http://localhost:8080](http://localhost:8080)

@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.9.1] - 2017-08-15
+
+### Fixes
+- Dockerfile.
+
+### Updates
+- README.md, Updated Docker section.
+
+### Refctors
+- Refactored Less code.
+
 ## [0.8.8] - 2017-08-15
 
 ### Added
@@ -62,6 +73,8 @@
 - Added travis sticker in Readme
 - Initialized node application
 
+[0.9.1]: https://github.com/mabdullah353/koajsapp/compare/v0.8.8...v0.9.1
+[0.8.8]: https://github.com/mabdullah353/koajsapp/compare/v0.8.5...v0.8.8
 [0.8.5]: https://github.com/mabdullah353/koajsapp/compare/v0.3.1...v0.8.5
 [0.3.1]: https://github.com/mabdullah353/koajsapp/compare/v0.2.6...v0.3.1
 [0.2.6]: https://github.com/mabdullah353/koajsapp/compare/v0.2.5...v0.2.6
