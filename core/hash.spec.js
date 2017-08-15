@@ -1,13 +1,13 @@
-/* global describe it rootRequire */
+/* global describe it */
 'use strict'
 
-const core = rootRequire('core')
+const hash = require('./hash')
 const chai = require('chai')
 const assert = chai.assert
 
 describe('Core Hash functionality', () => {
   it('should hash given string against a key.', async () => {
     const password = '12345'
-    assert.notEqual(core.hash(password), password)
+    assert.notEqual(hash.hash(password), password)
   })
 })

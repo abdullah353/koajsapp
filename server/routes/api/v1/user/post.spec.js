@@ -2,7 +2,6 @@
 'user strict'
 
 const postReq = require('./post')
-const logger = require('winston')
 const User = rootRequire('server/models/user')
 const chai = require('chai')
 const chaiAsPromised = require('chai-as-promised')
@@ -33,20 +32,16 @@ describe('POST /user', () => {
       assert.equal('{"message":"User added successfully."}', ctx.body)
 
       // Check if user actually inserted into the database.
-      try {
-        let userStored = await User.findOne({
-          where: {
-            email: sampleUser.email
-          }
-        })
+      let userStored = await User.findOne({
+        where: {
+          email: sampleUser.email
+        }
+      })
 
-        assert.equal(userStored.email, sampleUser.email)
-        // Password should be stored as hash.
-        assert.notEqual(userStored.password, sampleUser.password)
-      } catch (err) {
-        logger.error('Unable to store the valid user ' + err)
-        assert.fail('Unable to store the valid user ' + err)
-      }
+      assert.isNotEmpty(userStored)
+      assert.equal(userStored.email, sampleUser.email)
+      // Password should be stored as hash.
+      assert.notEqual(userStored.password, sampleUser.password)
     }
   })
 
@@ -66,18 +61,12 @@ describe('POST /user', () => {
       assert.hasAnyKeys(JSON.parse(ctx.body), ['errors'])
 
       // Check Invalid User shouldn't be in database.
-      try {
-        await User.findOne({
-          where: {
-            email: sampleUser.email
-          }
-        })
-
-        logger.error('User Should not be found in db.')
-        assert.fail('Unable to store the valid user.')
-      } catch (err) {
-        assert.isOk('User not created on invalid request.')
-      }
+      let user = await User.findOne({
+        where: {
+          email: sampleUser.email
+        }
+      })
+      assert.isNull(user)
     }
   })
 

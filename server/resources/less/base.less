@@ -1,0 +1,54 @@
+body{
+    background: darkslategrey;
+    margin-top: 80px;
+    font-family: fantasy;
+}
+
+#content {
+    display: flex;
+    justify-content: center;
+
+    .panel {
+        border-radius: 5px 5px 0 0;
+        background-color: whitesmoke;
+        position: relative;
+        padding: 50px;
+        display: flex;
+        flex-direction: column;
+
+        span {
+            display: flex;
+            justify-content: flex-start;
+            margin: 15px 0;
+        }
+
+        label {
+            width: 160px;
+            padding-top: 6px;
+        }
+
+        input {
+            height: 24px;
+            width: 100%;
+        }
+    }
+}
+
+.avatar {
+    position: absolute;
+    top: -60px;
+    width: 120px;
+    left: 145px;
+    height: 120px;
+    border-radius: 50%;
+    border: 2px solid whitesmoke;
+}
+
+.errors-panel {
+    list-style: decimal-leading-zero;
+    margin: 0;
+
+    li {
+        color: orangered;
+    }
+}

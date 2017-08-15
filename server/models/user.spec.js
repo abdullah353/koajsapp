@@ -5,7 +5,6 @@ const chai = require('chai')
 const chaiAsPromised = require('chai-as-promised')
 const assert = chai.assert
 const User = require('./user')
-const logger = require('winston')
 
 chai.use(chaiAsPromised)
 
@@ -15,20 +14,16 @@ describe('Model User', () => {
     await testFacades.fillSampleUsers()
 
     for (let i in testFacades.validUserSamples) {
-      let userStored
       let sampleUser = testFacades.validUserSamples[i]
 
-      try {
-        userStored = await User.findOne({
-          where: {
-            email: sampleUser.email
-          }
-        })
-      } catch (err) {
-        logger.error('Unable to store the valid user ' + err)
-        assert.fail('Unable to store the valid user ' + err)
-      }
+      // Check if user actually inserted into the database.
+      let userStored = await User.findOne({
+        where: {
+          email: sampleUser.email
+        }
+      })
 
+      assert.isNotEmpty(userStored)
       assert.equal(userStored.email, sampleUser.email)
       // Password should be stored as hash.
       assert.notEqual(userStored.password, sampleUser.password)
@@ -39,12 +34,13 @@ describe('Model User', () => {
     for (let i in testFacades.invalidUserSamples) {
       let sampleUser = testFacades.invalidUserSamples[i]
 
-      try {
-        await User.create(sampleUser)
-        assert.fail('Should not store invalid user.')
-      } catch (err) {
-        assert.isOk('User not valid.')
-      }
+      // Check Invalid User shouldn't be in database.
+      let user = await User.findOne({
+        where: {
+          email: sampleUser.email
+        }
+      })
+      assert.isNull(user)
     }
   })
 
