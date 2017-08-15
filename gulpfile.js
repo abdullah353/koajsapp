@@ -24,6 +24,11 @@ gulp.task('tests', () => run('npm test').exec()
 
 // Keep an eye on any changes, and live rebuild/test it.
 gulp.task('liveBuild', () => {
+
+    watch('./**/*.js', () => run('npm run linter -- --fix')
+      .exec()
+      .on('error', handleError))
+
     watch('./**/*.js', () => run('npm test').exec()
       .on('error', handleError))
 })
