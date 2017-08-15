@@ -1,5 +1,4 @@
-/* global describe it beforeEach afterEach */
-
+/* global describe it afterEach testFacades */
 'use strict'
 
 const chai = require('chai')
@@ -50,5 +49,5 @@ describe('Model User', () => {
   })
 
   // Clean all samples from database.
-  afterEach(async () => await testFacades.cleanSampleUsers())
+  afterEach(() => testFacades.cleanSampleUsers())
 })

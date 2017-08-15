@@ -19,14 +19,26 @@ gulp.task('nodemon', () => {
 let handleError = (err) => console.log(err.toString())
 
 // Run test cases on startup.
-gulp.task('tests', () => run('npm test').exec()
-  .on('error', handleError))
+gulp.task('tests', () => run('npm test')
+  .exec()
+  .on('error', handleError)
+)
+
+// Run linter to check code styling errors.
+gulp.task('linter', () => run('npm run linter -- --fix')
+  .exec()
+  .on('error', handleError)
+)
 
 // Keep an eye on any changes, and live rebuild/test it.
 gulp.task('liveBuild', () => {
+    watch('./**/*.js', () => run('npm run linter -- --fix')
+      .exec()
+      .on('error', handleError))
+
     watch('./**/*.js', () => run('npm test').exec()
       .on('error', handleError))
 })
 
 // Default Tasks.
-gulp.task('default', ['tests', 'liveBuild', 'nodemon'])
+gulp.task('default', ['tests', 'linter', 'liveBuild', 'nodemon'])

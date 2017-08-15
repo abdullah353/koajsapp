@@ -1,4 +1,5 @@
-[![Build Status](https://travis-ci.org/mabdullah353/koajsapp.svg?branch=master)](https://travis-ci.org/mabdullah353/koajsapp)
+[![Build Status](https://travis-ci.org/mabdullah353/koajsapp.svg?branch=master)](https://travis-ci.org/mabdullah353/koajsapp) 
+[![Coverage Status](https://coveralls.io/repos/github/mabdullah353/koajsapp/badge.svg?branch=master)](https://coveralls.io/github/mabdullah353/koajsapp?branch=master)
 
 # Installing.
 
@@ -56,8 +57,16 @@ This task will keep our server running as Daemons. Also on any file changes it w
 
 ### Gulp **tests** task.
 
-This will run all test cases for once.
+This will run all test cases and generate code coverage using `istanbul`.
 
 ### Gulp **liveBuild** task.
 
-This will keep an eye on JS file changes and rerun all testcases.
+This will keep an eye on JS file changes and rerun 'tests', 'linter' and 'nodemon' tasks.
+
+### Gulp **linter** task.
+
+This will run eslint script and identify errors on code styles.
+
+### Gulp **coveralls** task.
+
+It will update coveralls.io with code coverage.

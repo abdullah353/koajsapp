@@ -5,32 +5,31 @@ const joi = require('joi')
 const env = process.env.NODE_ENV || 'development'
 const port = process.env.PORT || 8080
 
+// Defining Schema for Environment variables.
 const envSchema = {
-    NODE_ENV: joi.string()
-        .allow(['development', 'production'])
-        .required(),
+  NODE_ENV: joi.string()
+    .allow(['development', 'production'])
+    .required(),
 
-    PORT: joi.number()
-        .required()
+  PORT: joi.number()
+    .required()
 }
 
+// Currently adjusted env.
 let currentEnv = {
-    NODE_ENV: env,
-    PORT: port,
+  NODE_ENV: env,
+  PORT: port
 }
 
 const result = joi.validate(currentEnv, envSchema)
 
 if (result.error) {
-    console.log(result.error)
-    throw new Error(`Config validation error: ${result.error}`)
+  throw new Error(`Config validation error: ${result.error}`)
 }
 
-const config = {
-    server: {
-        env: result.value.NODE_ENV,
-        port: result.value.PORT
-    }
+module.exports = {
+  server: {
+    env: result.value.NODE_ENV,
+    port: result.value.PORT
+  }
 }
-
-module.exports = config

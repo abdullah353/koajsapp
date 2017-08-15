@@ -3,3 +3,5 @@ node_js:
   - "8"
 before_script:
   - npm run  mg:run
+after_success:
+  - npm run coveralls

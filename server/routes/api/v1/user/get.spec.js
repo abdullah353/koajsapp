@@ -1,11 +1,12 @@
+/* global describe it beforeEach afterEach testFacades */
 'user strict'
 
 const getReq = require('./get')
-const logger = require('winston')
-const User = rootRequire('server/models/user')
 const chai = require('chai')
 const chaiAsPromised = require('chai-as-promised')
 const assert = chai.assert
+
+chai.use(chaiAsPromised)
 
 describe('GET /user', () => {
   // Mocking koa-router context object.
@@ -25,12 +26,11 @@ describe('GET /user', () => {
 
     for (let i in testFacades.validUserSamples) {
       let userSample = testFacades.validUserSamples[i]
-        // Body must contain sample user.
-        assert.deepInclude(users, userSample.email)
+      // Body must contain sample user.
+      assert.deepInclude(users, userSample.email)
     }
   })
 
-
   // Clean all samples from database.
-  afterEach(async () => await testFacades.cleanSampleUsers())
+  afterEach(() => testFacades.cleanSampleUsers())
 })

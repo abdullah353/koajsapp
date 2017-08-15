@@ -1,9 +1,11 @@
+/* global rootRequire */
+'use strict'
+
 const crypto = require('crypto')
-const secret = 'abcdefg'
+const config = rootRequire('config')
 
 const hash = (value) => {
-  return crypto
-    .createHmac('sha256', secret)
+  return crypto.createHmac('sha256', config.keys.secret)
     .update(value)
     .digest('hex')
 }
