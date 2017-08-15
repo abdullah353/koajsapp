@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/mabdullah353/koajsapp.svg?branch=master)](https://travis-ci.org/mabdullah353/koajsapp) 
-[![Coverage Status](https://coveralls.io/repos/github/mabdullah353/koajsapp/badge.svg?branch=master)](https://coveralls.io/github/mabdullah353/koajsapp?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/mabdullah353/koajsapp/badge.svg?branch=master)](https://coveralls.io/github/mabdullah353/koajsapp?branch=master) [![npm](https://img.shields.io/npm/v/npm.svg)]() [![David](https://img.shields.io/david/expressjs/express.svg)]()[![David](https://img.shields.io/david/dev/expressjs/express.svg)]()
 
 # Installing.
 
