@@ -1,5 +1,4 @@
 /* global rootRequire */
-
 'use strict'
 
 // Global rootRequire to avoid ../../ in require arguments.

@@ -1,3 +1,4 @@
+/* global rootRequire describe it afterEach testFacades */
 'user strict'
 
 const postReq = require('./post')
@@ -7,6 +8,7 @@ const chai = require('chai')
 const chaiAsPromised = require('chai-as-promised')
 const assert = chai.assert
 
+chai.use(chaiAsPromised)
 
 describe('POST /user', () => {
   // Mocking HTTP form request received.
@@ -17,7 +19,6 @@ describe('POST /user', () => {
   }
 
   it('allow valid form request to create new user.', async () => {
-
     for (let i in testFacades.validUserSamples) {
       let sampleUser = testFacades.validUserSamples[i]
 
@@ -50,7 +51,6 @@ describe('POST /user', () => {
   })
 
   it('Block invalid requests from creating user.', async () => {
-
     for (let i in testFacades.invalidUserSamples) {
       let sampleUser = testFacades.invalidUserSamples[i]
 
@@ -65,23 +65,22 @@ describe('POST /user', () => {
       assert.equal(ctx.status, 400)
       assert.hasAnyKeys(JSON.parse(ctx.body), ['errors'])
 
-      // Check if user actually inserted into the database.
+      // Check Invalid User shouldn't be in database.
       try {
-        let userStored = await User.findOne({
+        await User.findOne({
           where: {
             email: sampleUser.email
           }
         })
 
-        logger.error('Unable to store the valid user ' + err)
-        assert.fail('Unable to store the valid user ' + err)
+        logger.error('User Should not be found in db.')
+        assert.fail('Unable to store the valid user.')
       } catch (err) {
         assert.isOk('User not created on invalid request.')
       }
     }
   })
 
-
   // Clean all samples from database.
-  afterEach(async () => await testFacades.cleanSampleUsers())
+  afterEach(() => testFacades.cleanSampleUsers())
 })

@@ -1,5 +1,4 @@
 /* global rootRequire */
-
 'use strict'
 
 const core = rootRequire('core')

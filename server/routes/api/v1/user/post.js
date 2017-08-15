@@ -1,3 +1,4 @@
+/* global rootRequire */
 'use strict'
 
 const User = rootRequire('server/models/user')
@@ -8,7 +9,7 @@ module.exports = async (ctx, next) => {
 
   // Create Model from the post request body recevied.
   try {
-    logger.debug("Registering user "+ JSON.stringify(requestBody))
+    logger.debug('Registering user ' + JSON.stringify(requestBody))
 
     // #NOTE: Create Method perform the following operations in sequence:
     // 1. Run validations defined for the mode. /server/models/user.js
@@ -18,18 +19,20 @@ module.exports = async (ctx, next) => {
     // 3. If all passes then run the DB insert command.
     await User.create(requestBody)
   } catch (err) {
-    logger.warn("Failed to register new user, reasons were "+ err)
+    logger.warn('Failed to register new user, reasons were ' + err)
 
     // TODO: set http response status, to appropriate value.
     ctx.status = 400
 
     // return error to client. {'status': 'f'}
-    return ctx.body = JSON.stringify({
+    ctx.body = JSON.stringify({
       errors: err.errors.map((error) => error.message)
     })
+
+    return false
   }
-  
+
   ctx.body = JSON.stringify({
-    "message": "User added successfully."
+    'message': 'User added successfully.'
   })
 }

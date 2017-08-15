@@ -1,4 +1,5 @@
 /* global describe it rootRequire */
+'use strict'
 
 const core = rootRequire('core')
 const chai = require('chai')
